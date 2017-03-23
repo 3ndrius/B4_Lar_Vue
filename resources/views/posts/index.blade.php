@@ -26,19 +26,27 @@
 					<th>Created At:</th>
 					<th></th>
 
+
 				</thead>
 
 				<tbody>
 					@foreach($posts as $post)
 
 						<tr>
-							<th class="table-id">{{ $post->id }}</th>
-							<td class="table-title">{{ $post->title }}</td>
-              <td class="table-body">{{ substr($post->body, 0, 200)}} {{strlen($post->body)> 50 ? " ... " : ""}}</td>
-              <td class="table-date">{{ $post->created_at}}</td>
-              <td class="table-title">
+
+                <th class="table-id">{{ $post->id }}</th>
+  							<td class="table-title">{{ $post->title }}</td>
+                <td class="table-body">{{ substr($post->body, 0, 200)}} {{strlen($post->body)> 50 ? " ... " : ""}}</td>
+                <td class="table-date">{{ $post->created_at}}</td>
+							</a>
+              <td class="table-button">
+                <a href="{{ route('posts.show', $post)}}"><button class="btn btn-secondary">Pokaż</button></a>
                 <a href="{{route('posts.edit', $post->id)}}"><button type="button" name="button" class="btn btn-info">Edytuj</button></a>
-                <button type="button" name="button" class="btn btn-danger">Usuń</button>
+
+
+                {!! Form::open(['route' => ['posts.destroy', $post->id ], 'method' => 'DELETE' ]) !!}
+                {!! Form::submit('Usuń', ['class'=> 'btn btn-danger']) !!}
+                {!! Form::close() !!}
 
               </td>
 

@@ -17,6 +17,15 @@
   width: 13%;
   color:#cdcdcd;
 }
+.table-button{
+  width: 20%;
+  display:inline-flex;
+
+}
+.table-button a {
+  margin-right: 5px;
+}
+
 body {
   padding-top: 50px;
 }

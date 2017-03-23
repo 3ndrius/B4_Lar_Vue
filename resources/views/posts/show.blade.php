@@ -22,7 +22,7 @@
       </div>
       <div class="col-md-4">
         <a href="{{route('posts.edit', $post->id)}}"><button type="button" name="button" class="btn btn-info">Edytuj</button></a>
-        <a href="{{route('posts.show', $post->id)}}"><button type="button" name="button" class="btn btn-danger">Anuluj</button></a>
+        <a href="{{route('posts.index')}}"><button type="button" name="button" class="btn btn-danger">Anuluj</button></a>
 
       </div>
     </div>
