@@ -23,15 +23,17 @@
     <div class="col-md-10">
 
       <div class="card-columns">
-  <div class="card">
-    <img class="card-img-top img-fluid" src="..." alt="Card image cap">
-    <div class="card-block">
-      <h4 class="card-title">Card title that wraps to a new line</h4>
-      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <button type="button" class="btn btn-secondary ">Wyslij</button>
-    </div>
-  </div>
-  <div class="card p-3">
+        @foreach($posts as $post)
+          <div class="card">
+            <img class="card-img-top img-fluid" src="..." alt="Card image cap">
+            <div class="card-block">
+              <h4 class="card-title">{{$post->title}}</h4>
+              <p class="card-text">{{substr($post->body,0,100) }} {{strlen($post->body)>100 ? " ... ":" "}}</p>
+              <button type="button" class="btn btn-secondary ">Więcej</button>
+            </div>
+          </div>
+        @endforeach
+  {{-- <div class="card p-3">
     <blockquote class="card-block card-blockquote">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
       <footer>
@@ -91,7 +93,7 @@
       <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
-  </div>
+  </div> --}}
 </div>
 
     </div>
@@ -101,26 +103,29 @@
 
     </div>
   </div>
-  .<div class="row">
+  <div class="row">
 
 
-    .<div class="col-md-12">
+    <div class="col-md-12">
       <div id="accordion" role="tablist" aria-multiselectable="true">
+
+
   <div class="card">
     <div class="card-header" role="tab" id="headingOne">
       <h5 class="mb-0">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
+
         </a>
       </h5>
     </div>
 
     <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
       <div class="card-block">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+
       </div>
     </div>
   </div>
+
   <div class="card">
     <div class="card-header" role="tab" id="headingTwo">
       <h5 class="mb-0">

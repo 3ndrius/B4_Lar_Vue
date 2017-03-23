@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 
 class PagesController extends Controller
 {
     //
     public function getIndex() {
 
-      return view('pages.index');
+      $posts = Post::orderBy('id', 'asc')->paginate(8);
+      return view('pages.index')->withPosts($posts);
     }
 
     public function getIT() {
