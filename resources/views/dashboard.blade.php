@@ -39,10 +39,10 @@
           <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
             <ul class="nav nav-pills flex-column">
               <li class="nav-item ">
-                <a class="nav-link active" href="#">Start <span class="sr-only">(current)</span></a>
+                <a class="nav-link " href="/">Start</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link" href="{{ route('posts.index')}}">Wszystkie posty</a>
+                <a class="nav-link active" href="{{ route('posts.index')}}">Wszystkie posty<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('posts.create') }}">Nowy post</a>

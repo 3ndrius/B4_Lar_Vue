@@ -5,7 +5,10 @@
 
 </head>
 <body>
+<div class="container-fluid">
 
+
+</div>
 @include('partials._headnav')
 
   @yield('content')

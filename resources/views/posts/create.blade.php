@@ -31,6 +31,8 @@
         <input type="text" class="form-control" name="title">
         <h4 class="margin-top">Treść</h4>
         <textarea name="body" rows="12" class="form-control  "></textarea>
+        <h5>Slug</h5>
+        <input type="text" name="slug" class="form-control">
         <input type="submit"  value="Stwórz post" class="btn btn-primary form-control margin-top">
 
 
