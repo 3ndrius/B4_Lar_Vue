@@ -29,6 +29,9 @@
         {{ Form::label('body', 'Tresc:', ['class' => 'margin-top'])}}
         {{Form::textarea('body', null, ['class' => 'form-control'])}}
 
+        {{Form::label('category_id', 'Category: ')}}
+        {{Form::select('category_id', $categories, null, ['class' => 'form-control'])}}
+
 
         {{ Form::submit('Aktualizuj', ['class' => 'btn btn-success btn-block margin-top']) }}
 

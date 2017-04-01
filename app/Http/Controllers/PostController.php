@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
 
 class PostController extends Controller
 {
@@ -26,7 +27,8 @@ class PostController extends Controller
     public function create()
     {
 
-      return view('posts.create');
+      $categories = Category::all();
+      return view('posts.create')->withCategories($categories);
 
     }
 
@@ -41,7 +43,8 @@ class PostController extends Controller
       $this->validate($request, [
         'title' => 'required|max:255',
         'body'  => 'required',
-        'slug'  => 'required'
+        'slug'  => 'required',
+        'category_id' => 'required|integer'
       ]);
 
       $post = new Post;
@@ -49,6 +52,7 @@ class PostController extends Controller
       $post->title = $request->title;
       $post->body  = $request->body;
       $post->slug  = $request->slug;
+      $post->category_id = $request->category_id;
 
         $post->save();
 
@@ -79,7 +83,15 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        return view('posts.edit')->withPost($post);
+        $categories = Category::all();
+
+        $cats = array();
+        foreach ($categories as $category) {
+
+            $cats[$category->id] = $category->name;
+        }
+
+        return view('posts.edit')->withPost($post)->withCategories($cats);
     }
 
     /**
@@ -96,13 +108,15 @@ class PostController extends Controller
 
         $this->validate($request, [
           'title' => 'required|max:255',
-          'body'  => 'required'
+          'body'  => 'required',
+          'category_id' => 'required|integer'
         ]);
 
         $post = Post::find($id);
 
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        $post->category_id = $request->input('category_id');
 
         $post->save();
 

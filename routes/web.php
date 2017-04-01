@@ -11,6 +11,7 @@
 |
 */
 
+Route::resource('categories', 'CategoryController', ['except' =>['create']]);
 
 Route::get('blog/{slug}', ['as' => 'blog.single', 'uses' => 'BlogController@show'])->where('slug', '[\w\d\-\_]+');
 Route::get('blog', ['uses' => 'BlogController@index', 'as' => 'blog.index']);

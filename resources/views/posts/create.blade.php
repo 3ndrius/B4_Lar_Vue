@@ -33,6 +33,14 @@
         <textarea name="body" rows="12" class="form-control  "></textarea>
         <h5>Slug</h5>
         <input type="text" name="slug" class="form-control">
+
+
+
+        <select class="form-control" name="category_id">
+						@foreach($categories as $category)
+							<option value="{{ $category->id }}"> {{$category->name}}</option>
+						@endforeach
+					</select>
         <input type="submit"  value="Stwórz post" class="btn btn-primary form-control margin-top">
 
 

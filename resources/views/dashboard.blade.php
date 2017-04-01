@@ -52,7 +52,7 @@
 
             <ul class="nav nav-pills flex-column">
               <li class="nav-item">
-                <a class="nav-link" href="#">Kategorie</a>
+                <a class="nav-link" href="{{route('categories.index')}}">Kategorie</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Tagi</a>
