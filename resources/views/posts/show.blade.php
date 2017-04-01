@@ -30,6 +30,8 @@
       <div class="col-md-9 col-md-offset-3">
         <h2>{{ $post->title }}</h2>
         <p class="lead">{{ $post->body }}</p>
+        <hr>
+        <p>{{$post->category->name}}</p>
 
       </div>
     </div>
