@@ -22,7 +22,11 @@
 						<tr>
 							<th>{{$category->id }}</th>
 							<td>{{$category->name}}</td>
+							<td>
+								{!! Form::open()!!}
+							</td>
 							  <td class="text-sm-right">
+
 									{!! Form::open(['route' => ['categories.destroy', $category->id ], 'method' => 'DELETE' ]) !!}
 	                {!! Form::submit('Usuń', ['class'=> 'btn btn-danger']) !!}
 	                {!! Form::close() !!}
