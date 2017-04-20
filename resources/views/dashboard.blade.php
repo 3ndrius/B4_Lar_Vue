@@ -55,7 +55,7 @@
                 <a class="nav-link" href="{{route('categories.index')}}">Kategorie</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Tagi</a>
+                <a class="nav-link" href="{{route('tags.index')}}">Tagi</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Komentarze</a>

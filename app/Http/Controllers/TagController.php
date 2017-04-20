@@ -23,10 +23,7 @@ class TagController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -36,7 +33,14 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+          'name' => 'required|max:255'
+        ]);
+        $tag = new Tag;
+        $tag->name = $request->name;
+        $tag->save();
+
+        return redirect()->route('tags.index');
     }
 
     /**
