@@ -1,6 +1,12 @@
 @extends('dashboard')
 @section('title', '| Edytuj')
 
+@section('stylesheets')
+  
+  {!! Html::style('/css/select2.min.css') !!}
+
+@endsection
+
 @section('content')
 
 
@@ -32,6 +38,8 @@
         {{Form::label('category_id', 'Category: ')}}
         {{Form::select('category_id', $categories, null, ['class' => 'form-control'])}}
 
+        {{ Form::label('tags' , 'Tags:') }}
+  			{{ Form::select('tags[]', $tags, null, ['class' => 'select2-multi form-control' , 'multiple' => 'multiple']) }}
 
         {{ Form::submit('Aktualizuj', ['class' => 'btn btn-success btn-block margin-top']) }}
 
@@ -40,6 +48,18 @@
 
     </div>
   </div>
+
+
+@endsection
+
+@section('scripts')
+{!! Html::script('js/select2.min.js') !!}
+<script>
+	$('.select2-multi').select2();
+	$('.select2-multi').select2().val({!! json_encode($post->tags()->allRelatedIds() ) !!}).trigger('change');
+
+
+</script>
 
 
 @endsection

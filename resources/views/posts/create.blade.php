@@ -2,6 +2,7 @@
 @section('title', '| Nowy post')
 @section('stylesheets')
   <link rel="stylesheet" href="/css/main.css">
+{!! Html::style('/css/select2.min.css') !!}
 
 
 @endsection
@@ -27,20 +28,30 @@
 
       <form  action="{{route('posts.store')}}" method="POST">
         <input type="hidden" name="_token" value="{{csrf_token()}}" >
+
         <h4>Tytuł</h4>
         <input type="text" class="form-control" name="title">
+
         <h4 class="margin-top">Treść</h4>
         <textarea name="body" rows="12" class="form-control  "></textarea>
+
         <h5>Slug</h5>
         <input type="text" name="slug" class="form-control">
-
-
-
+        {{Form::label('category_id', 'Kategorie:')}}
         <select class="form-control" name="category_id">
 						@foreach($categories as $category)
 							<option value="{{ $category->id }}"> {{$category->name}}</option>
 						@endforeach
 					</select>
+
+          {{Form::label('tags', 'Tags:')}}
+
+  					<select class="form-control select2-multi" name="tags[]" multiple="multiple">
+  						@foreach($tags as $tag)
+  							<option value="{{ $tag->id }}"> {{$tag->name}}</option>
+  						@endforeach
+  					</select>
+
         <input type="submit"  value="Stwórz post" class="btn btn-primary form-control margin-top">
 
 
@@ -53,5 +64,15 @@
 
 
 
+
+@endsection
+
+@section('scripts')
+{!! Html::script('js/select2.min.js') !!}
+{!!Html::script('javascript/parsley.min.js')!!}
+
+<script>
+	$('.select2-multi').select2();
+</script>
 
 @endsection
