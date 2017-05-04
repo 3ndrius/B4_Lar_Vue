@@ -27,9 +27,10 @@
 							</td>
 							  <td class="text-sm-right">
 
-									{!! Form::open(['route' => ['categories.destroy', $category->id ], 'method' => 'DELETE' ]) !!}
-	                {!! Form::submit('Usuń', ['class'=> 'btn btn-danger']) !!}
-	                {!! Form::close() !!}
+									{{-- <a href="{{route('categories.delete', $category->id)}}">Usun</a> --}}
+									{!! Form::model($category, ['route' => ['categories.destroy', $category->id], 'method' => 'DELETE']) !!}
+						        {{Form::submit('Usuń', array(' class' => 'btn btn-danger'))}}
+						      {!! Form::close()!!}
 
 	              </td>
 						</tr>

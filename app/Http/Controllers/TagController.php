@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Tag;
 use App\Post;
 use Illuminate\Http\Request;
-
+use Session;
 class TagController extends Controller
 {
     /**
@@ -85,7 +85,7 @@ class TagController extends Controller
         ]);
         $tag->name = $request->name;
         $tag->save();
-
+        Session::flash('success', 'Udało ci się zaktualizować tag !');
         return redirect()->route('tags.show', $tag->id);
     }
 
@@ -99,8 +99,9 @@ class TagController extends Controller
     {
         $tag = Tag::find($id);
         $tag->posts()->detach();
-        $tag->delete();
 
+        $tag->delete();
+        Session::flash('success', 'Udało ci się usunąć tag !');
         return redirect()->route('tags.index');
     }
 }

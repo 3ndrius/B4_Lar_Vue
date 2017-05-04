@@ -7,20 +7,27 @@
 <h1>Wszystkie posty</h1>
 
   <div class="row mt-3">
+    <div class="col-md-10 mt-2">
   @foreach ($posts as $post)
 
 
-        <div class="col-md-10 mt-2">
+
           <h2>{{$post->title}}</h2>
           <br>
-          <p>{{$post->body}}</p>
+          <p>{{strip_tags($post->body)}}</p>
 
           <a  href="{{ route('blog.single', $post->slug) }}" > <button class="btn btn-primary">Więcej</button></a>
           <hr>
-        </div>
+
 
 
   @endforeach
+  </div>
+    <div class="col-md-2">
+      @foreach($tags as $tag)
+        <span class="badge badge-info">{{$tag->name}}</span>
+      @endforeach
+    </div>
 
       </div>
 

@@ -58,7 +58,7 @@
                 <a class="nav-link" href="{{route('tags.index')}}">Tagi</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Komentarze</a>
+                <a class="nav-link" href="{{route('comments.index')}}">Komentarze</a>
               </li>
 
             </ul>
@@ -67,9 +67,9 @@
 
           <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3 ">
 
-
+            @include('partials._messages_back')
               @yield('content')
-              
+
 
           </main>
         </div>

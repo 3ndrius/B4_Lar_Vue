@@ -2,7 +2,7 @@
 @section('title', '| Edytuj')
 
 @section('stylesheets')
-  
+
   {!! Html::style('/css/select2.min.css') !!}
 
 @endsection
@@ -34,6 +34,9 @@
 
         {{ Form::label('body', 'Tresc:', ['class' => 'margin-top'])}}
         {{Form::textarea('body', null, ['class' => 'form-control'])}}
+
+        {{ Form::label('slug', 'Slug:', ['class' => 'margin-top'])}}
+        {{Form::text('slug', null, ['class' => 'form-control'])}}
 
         {{Form::label('category_id', 'Category: ')}}
         {{Form::select('category_id', $categories, null, ['class' => 'form-control'])}}

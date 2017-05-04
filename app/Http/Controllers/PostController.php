@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
 use App\Tag;
+use Session;
 
 class PostController extends Controller
 {
@@ -45,8 +46,8 @@ class PostController extends Controller
       $this->validate($request, [
         'title' => 'required|max:255',
         'body'  => 'required',
-        'slug'  => 'required',
-        'category_id' => 'required|integer'
+        'slug'  => 'required'
+
       ]);
 
       $post = new Post;
@@ -59,6 +60,8 @@ class PostController extends Controller
         $post->save();
 
         $post->tags()->sync($request->tags, false);
+
+        Session::flash('success', 'Udało ci się utworzyć posta !');
 
       return redirect()->route('posts.show', $post->id);
 
@@ -119,6 +122,7 @@ class PostController extends Controller
         $this->validate($request, [
           'title' => 'required|max:255',
           'body'  => 'required',
+          'slug' => 'required|min:5|max:255',
           'category_id' => 'required|integer'
         ]);
 
@@ -132,6 +136,7 @@ class PostController extends Controller
         $post->save();
         $post->tags()->sync($request->tags, false);
 
+        Session::flash('success', 'Udało ci się zaktualizować posta !');
         return redirect()->route('posts.show', $post->id);
     }
 
@@ -144,12 +149,11 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
-
         $post = Post::find($id);
-
-      $post->tags()->detach();
-
+        $post->tags()->detach();
         $post->delete();
+
+        Session::flash('success', 'Udało ci się usunąć posta !');
         return redirect()->route('posts.index');
     }
 }

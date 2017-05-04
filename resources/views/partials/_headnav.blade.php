@@ -13,10 +13,13 @@
         <a class="nav-link" href="/">Start <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item {{ Request::is('news') ? "active" : "" }}">
-        <a class="nav-link " href="#">News</a>
+        <a class="nav-link " href="/news">Nowość</a>
       </li>
       <li class="nav-item {{ Request::is('it')? "active" : "" }}">
         <a class="nav-link" href="/it">IT</a>
+      </li>
+      <li class="nav-item {{ Request::is('blog')? "active" : "" }}">
+        <a class="nav-link" href="/blog">Blog</a>
       </li>
       <li class="nav-item {{ Request::is('inne')? "active" : "" }}">
         <a class="nav-link" href="#">Inne</a>
