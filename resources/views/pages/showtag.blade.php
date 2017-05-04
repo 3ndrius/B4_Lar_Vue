@@ -42,7 +42,7 @@
 
 								@endforeach
 								<td>
-									<a href="{{ route('test.showpost', $post->id)}}" class="btn btn-secondary pull-right">Pokaż</a>
+									<a href="{{ route('blog.single', $post->slug)}}" class="btn btn-secondary pull-right">Pokaż</a>
 								</td>
 							</tr>
 
