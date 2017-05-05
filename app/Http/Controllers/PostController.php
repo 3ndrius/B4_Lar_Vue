@@ -7,6 +7,7 @@ use App\Post;
 use App\Category;
 use App\Tag;
 use Session;
+use Purifier;
 
 class PostController extends Controller
 {
@@ -53,7 +54,7 @@ class PostController extends Controller
       $post = new Post;
 
       $post->title = $request->title;
-      $post->body  = $request->body;
+      $post->body  = Purifier::clean($request->body);
       $post->slug  = $request->slug;
       $post->category_id = $request->category_id;
 
@@ -129,14 +130,20 @@ class PostController extends Controller
         $post = Post::find($id);
 
         $post->title = $request->input('title');
-        $post->body = $request->input('body');
+        $post->body = Purifier::clean($request->input('body'));
         $post->category_id = $request->input('category_id');
 
-
         $post->save();
-        $post->tags()->sync($request->tags, false);
+
+        if(isset($request->tags)) {
+          $post->tags()->sync($request->tags);
+        }
+        else {
+          $post->tags()->sync(array());
+        }
 
         Session::flash('success', 'Udało ci się zaktualizować posta !');
+
         return redirect()->route('posts.show', $post->id);
     }
 

@@ -25,13 +25,7 @@ class PagesController extends Controller
       return view('pages.showtag')->withTag($tag);
     }
 
-    public function getshowPost($slug) {
 
-      $post = Post::find($slug);
-
-      return view('test.showpost')->withPost($post);
-
-    }
 
     public function getIT() {
 
