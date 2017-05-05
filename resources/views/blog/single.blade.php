@@ -10,9 +10,11 @@
 
   <div class="row pt-4">
 		<div class="col-md-12 p-4 ">
+      <img class= "mb-2" src="{{asset('images/'.$post->image)}}" alt="Zdjecie h1" width="1100" height="600">
+
       <h1 class="p-2">{{$post->title}}</h1>
 				<p>{!!$post->body!!}</p>
-        <hr>
+
         @if(isset($post->category->name))
           <h5>Kategoria <span class="badge badge-pill badge-default">{{$post->category->name}}</span></h5>
         @else

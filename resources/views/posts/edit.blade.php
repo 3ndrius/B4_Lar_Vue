@@ -2,7 +2,7 @@
 @section('title', '| Edytuj')
 
 @section('stylesheets')
-
+{!! Html::style('css/parsley.css') !!}
   {!! Html::style('/css/select2.min.css') !!}
   <script src="//cloud.tinymce.com/stable/tinymce.min.js"></script>
   <script>tinymce.init({ selector:'textarea', menubar:'false' });</script>
@@ -28,24 +28,27 @@
     <div class="col-md-8">
 
 
-      {!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT']) !!}
+      {!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT', 'files' => true, 'data-parsley-validate' => '']) !!}
 
         {{Form::label('title', 'Tytuł:')}}
-        {{Form::text('title', null, ['class' => 'form-control'])}}
+        {{Form::text('title', null, ['class' => 'form-control', 'required'=>'', 'maxlength' =>'255'])}}
 
 
 
-        {{ Form::label('body', 'Tresc:', ['class' => 'margin-top'])}}
-        {{Form::textarea('body', null, ['class' => 'form-control'])}}
+        {{ Form::label('body', 'Tresc:', ['class' => 'margin-top' ])}}
+        {{Form::textarea('body', null, ['class' => 'form-control','required' => '', 'maxlength' => '4555')])}}
 
         {{ Form::label('slug', 'Slug:', ['class' => 'margin-top'])}}
-        {{Form::text('slug', null, ['class' => 'form-control'])}}
+        {{Form::text('slug', null, ['class' => 'form-control', 'required'=>'', 'maxlength' =>'255'])}}
 
         {{Form::label('category_id', 'Category: ')}}
         {{Form::select('category_id', $categories, null, ['class' => 'form-control'])}}
 
         {{ Form::label('tags' , 'Tags:') }}
   			{{ Form::select('tags[]', $tags, null, ['class' => 'select2-multi form-control' , 'multiple' => 'multiple']) }}
+        <br><br>
+        {{ Form::label('featured_image', 'Zaktualizuj swoje zdjęcie:')}}
+        {{ Form::file('featured_image', ['class' => 'form-control'])}}
 
         {{ Form::submit('Aktualizuj', ['class' => 'btn btn-success btn-block margin-top']) }}
 
@@ -64,7 +67,7 @@
 	$('.select2-multi').select2();
 	$('.select2-multi').select2().val({!! json_encode($post->tags()->allRelatedIds() ) !!}).trigger('change');
 
-
+{!!Html::script('javascript/parsley.min.js')!!}
 </script>
 
 

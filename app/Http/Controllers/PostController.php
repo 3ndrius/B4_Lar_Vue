@@ -8,6 +8,8 @@ use App\Category;
 use App\Tag;
 use Session;
 use Purifier;
+use Image;
+use Storage;
 
 class PostController extends Controller
 {
@@ -47,7 +49,8 @@ class PostController extends Controller
       $this->validate($request, [
         'title' => 'required|max:255',
         'body'  => 'required',
-        'slug'  => 'required'
+        'slug'  => 'required',
+        'featured_image' => 'sometimes|image'
 
       ]);
 
@@ -57,6 +60,18 @@ class PostController extends Controller
       $post->body  = Purifier::clean($request->body);
       $post->slug  = $request->slug;
       $post->category_id = $request->category_id;
+
+
+      //image Storage
+      if ($request->hasFile('featured_image')) {
+        $image = $request->file('featured_image');
+        $filename = time() .'.'.$image->getClientOriginalExtension();
+        $location =  public_path('images/'.$filename);
+        Image::make($image)->resize(1100,600)->save($location);
+
+        $post->image = $filename;
+      }
+
 
         $post->save();
 
@@ -123,15 +138,29 @@ class PostController extends Controller
         $this->validate($request, [
           'title' => 'required|max:255',
           'body'  => 'required',
-          'slug' => 'required|min:5|max:255',
-          'category_id' => 'required|integer'
+          'slug' => "required|min:5|max:255|unique:posts,slug,$id",
+          'category_id' => 'required|integer',
+          'featured_image' => 'image'
         ]);
+
+
 
         $post = Post::find($id);
 
         $post->title = $request->input('title');
         $post->body = Purifier::clean($request->input('body'));
         $post->category_id = $request->input('category_id');
+
+        if ($request->hasFile('featured_image')) {
+          $image = $request->file('featured_image');
+          $filename = time() .'.'.$image->getClientOriginalExtension();
+          $location =  public_path('images/'.$filename);
+          Image::make($image)->resize(800,400)->save($location);
+          $oldFilename = $post->image;
+
+          $post->image = $filename;
+          Storage::delete($oldFilename);
+        }
 
         $post->save();
 
@@ -158,6 +187,7 @@ class PostController extends Controller
         //
         $post = Post::find($id);
         $post->tags()->detach();
+        Storage::delete($post->image);
         $post->delete();
 
         Session::flash('success', 'Udało ci się usunąć posta !');

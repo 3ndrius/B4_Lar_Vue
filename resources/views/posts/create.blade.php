@@ -3,9 +3,12 @@
 @section('stylesheets')
   <link rel="stylesheet" href="/css/main.css">
   {!! Html::style('/css/select2.min.css') !!}
+  {!! Html::style('css/parsley.css') !!}
 
-    <script src="//cloud.tinymce.com/stable/tinymce.min.js"></script>
-    <script>tinymce.init({ selector:'textarea', menubar:'false' });</script>
+  <script src="//cloud.tinymce.com/stable/tinymce.min.js"></script>
+  <script>tinymce.init({ selector:'textarea', menubar:'false' });</script>
+
+
 
 
 
@@ -30,7 +33,7 @@
     <div class="col-md-8">
 
 
-      <form  action="{{route('posts.store')}}" method="POST">
+      <form  action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data" >
         <input type="hidden" name="_token" value="{{csrf_token()}}" >
 
         <h4>Tytuł</h4>
@@ -55,6 +58,11 @@
   							<option value="{{ $tag->id }}"> {{$tag->name}}</option>
   						@endforeach
   					</select>
+            <br>
+            <br>
+
+            {{ Form::label('featured_image', 'Załaduj swoje zdjęcie:')}}
+            {{ Form::file('featured_image', ['class' => 'form-control'])}}
 
         <input type="submit"  value="Stwórz post" class="btn btn-primary form-control margin-top">
 
@@ -74,6 +82,7 @@
 @section('scripts')
 {!! Html::script('js/select2.min.js') !!}
 {!!Html::script('javascript/parsley.min.js')!!}
+
 
 <script>
 	$('.select2-multi').select2();

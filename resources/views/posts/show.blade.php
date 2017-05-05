@@ -29,6 +29,7 @@
 
     <div class="row pt-4 pb-4">
       <div class="col-md-9 col-md-offset-3">
+        <img class="mb-4" src="{{asset('images/'. $post->image)}}" alt="Image" width="1100" height="600">
         <h1>{{ $post->title }}</h1>
         <p >{!! $post->body !!}</p>
         @if(isset($post->category->name))
