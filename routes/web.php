@@ -45,3 +45,9 @@ Route::resource('categories', 'CategoryController', ['except' =>['create']]);
 
 //tag crud
 Route::resource('tags', 'TagController', ['except' => ['create']]);
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Auth::routes();
+
+Route::get('/dashboard', ['uses' => 'HomeController@index', 'as' => 'dashboard.start']);

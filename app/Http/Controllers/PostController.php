@@ -13,14 +13,20 @@ use Storage;
 
 class PostController extends Controller
 {
+  public function __construct() {
+
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
+
+
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('id', 'desc')->paginate(12);
         return view('posts.index')->withPosts($posts);
     }
 

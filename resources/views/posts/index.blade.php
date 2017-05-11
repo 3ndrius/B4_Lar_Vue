@@ -7,7 +7,7 @@
 
 <div class="row p-4">
 <div class="col-md-10">
-    <h1>All posts</h1>
+    <h1>Wszystkie posty</h1>
 
 </div>
 <div class="col-md-2">
@@ -57,6 +57,7 @@
 
 			</table>
 
+<div class="d-flex justify-content-center"> {!! $posts->links()!!}</div>
 
 
 	</div>

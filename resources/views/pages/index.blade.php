@@ -20,7 +20,8 @@
       <div class="card-columns">
         @foreach($posts as $post)
           <div class="card">
-            <img class="card-img-top img-fluid" src="..." alt="Card image cap">
+
+            <img class="card-img-top img-fluid" src="{{asset('images/'. $post->image)}}" alt="Card image cap">
             <div class="card-block">
               <h4 class="card-title">{{$post->title}}</h4>
               <p class="card-text">{{substr(strip_tags($post->body),0,100) }} {{strlen(strip_tags($post->body))>100 ? " ... ":" "}}</p>
@@ -37,7 +38,7 @@
       @endforeach --}}
       @foreach($tags as $tag)
 
-          <span class="badge badge-info"><a href="{{route('pages.showtag', $tag->id)}}">{{$tag->name}}</a></span>
+          <span class="badge badge-info"><a href="{{route('pages.showtag', $tag->name)}}">{{$tag->name}}</a></span>
 
       @endforeach
 
@@ -45,12 +46,16 @@
   </div>
 
   <div class="row">
+    <div class="col-md-12">
+
+
     <div id="accordion" role="tablist" aria-multiselectable="true">
+
       <div class="card">
         <div class="card-header" role="tab" id="headingOne">
           <h5 class="mb-0">
             <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            Test na inteligencje
+ddsds
             </a>
           </h5>
         </div>
@@ -60,6 +65,8 @@
           </div>
         </div>
       </div>
+
+
         <div class="card">
           <div class="card-header" role="tab" id="headingTwo">
             <h5 class="mb-0">
@@ -88,7 +95,16 @@
             </div>
           </div>
         </div>
-      </div
+      </div>
+    </div>
+  <div class="row">
+    <div class="col-md-12">
+      hgey
+      @foreach ($comments as $comment)
+        {{$comment->id}}
+{{$comment->name}}
+{{$comment->comment}}
+      @endforeach
     </div>
   </div>
 

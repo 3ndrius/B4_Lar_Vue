@@ -2,11 +2,11 @@
 @section('title', '| Edytuj')
 
 @section('stylesheets')
-{!! Html::style('css/parsley.css') !!}
+
   {!! Html::style('/css/select2.min.css') !!}
   <script src="//cloud.tinymce.com/stable/tinymce.min.js"></script>
   <script>tinymce.init({ selector:'textarea', menubar:'false' });</script>
-
+  {!! Html::style('css/parsley.css') !!}
 
 @endsection
 
@@ -36,13 +36,13 @@
 
 
         {{ Form::label('body', 'Tresc:', ['class' => 'margin-top' ])}}
-        {{Form::textarea('body', null, ['class' => 'form-control','required' => '', 'maxlength' => '4555')])}}
+        {{Form::textarea('body', null, ['class' => 'form-control','required' => '', 'maxlength' => '25555'])}}
 
         {{ Form::label('slug', 'Slug:', ['class' => 'margin-top'])}}
         {{Form::text('slug', null, ['class' => 'form-control', 'required'=>'', 'maxlength' =>'255'])}}
 
         {{Form::label('category_id', 'Category: ')}}
-        {{Form::select('category_id', $categories, null, ['class' => 'form-control'])}}
+        {{Form::select('category_id', $categories, null, ['class' => 'form-control', 'required'=>''])}}
 
         {{ Form::label('tags' , 'Tags:') }}
   			{{ Form::select('tags[]', $tags, null, ['class' => 'select2-multi form-control' , 'multiple' => 'multiple']) }}
@@ -62,12 +62,20 @@
 @endsection
 
 @section('scripts')
+
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.js"
+    integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg="
+    crossorigin="anonymous"></script>
+    {!!Html::script('javascript/parsley.min.js')!!}
 {!! Html::script('js/select2.min.js') !!}
 <script>
 	$('.select2-multi').select2();
 	$('.select2-multi').select2().val({!! json_encode($post->tags()->allRelatedIds() ) !!}).trigger('change');
 
-{!!Html::script('javascript/parsley.min.js')!!}
+
+
+
 </script>
 
 

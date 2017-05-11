@@ -29,29 +29,25 @@
       </li>
     </ul>
 
-  </div>
+
+    <ul class="navbar-nav">
+      @if(Auth::check())
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Zalogowany</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{route('logout')}}">Wyloguj</a>
+            <a class="dropdown-item" href="{{route('posts.index')}}">Panel</a>
+          </div>
+        </li>
+      @else
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Panel</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{route('login')}}">LOGOWANIE</a>
+            <a class="dropdown-item" href="{{route('register')}}">REJESTRACJA</a>
+          </div>
+        </li>
+      @endif
+    </ul>
   </div>
 </nav>
-
-
-
-
-
-
-
-
-{{--
-    <div class="blog-masthead s ">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="container">
-        <nav class="nav blog-nav ticky-top navbar-toggleable-md">
-          <a class="nav-link active" href="#">Home</a>
-          <a class="nav-link" href="#">News</a>
-          <a class="nav-link" href="#">IT</a>
-          <a class="nav-link" href="#">Różne</a>
-          <a class="nav-link" href="#">Kontakt</a>
-        </nav>
-      </div>
-    </div> --}}

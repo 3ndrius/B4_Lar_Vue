@@ -8,7 +8,7 @@
 
   <div class="row p-4">
     <div class="col-md-8">
-      <h2 class="pb-2">Komentarze ({{$comments->count() }})</h2>
+      <h2 class="pb-2">Komentarze ({{$comments->total() }})</h2>
       @foreach($comments as $comment)
         {{$comment->id}}
       <h6>{{$comment->name}}</h6>

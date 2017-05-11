@@ -2,8 +2,11 @@
 @section('title', '| Nowy post')
 @section('stylesheets')
   <link rel="stylesheet" href="/css/main.css">
+
+    {!! Html::style('css/parsley.css') !!}
+
   {!! Html::style('/css/select2.min.css') !!}
-  {!! Html::style('css/parsley.css') !!}
+
 
   <script src="//cloud.tinymce.com/stable/tinymce.min.js"></script>
   <script>tinymce.init({ selector:'textarea', menubar:'false' });</script>
@@ -33,14 +36,14 @@
     <div class="col-md-8">
 
 
-      <form  action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data" >
+      <form  action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data" data-parsley-validate='' >
         <input type="hidden" name="_token" value="{{csrf_token()}}" >
 
         <h4>Tytuł</h4>
-        <input type="text" class="form-control" name="title">
+        <input type="text" class="form-control" name="title" required="" ,maxlength = "255">
 
         <h4 class="margin-top">Treść</h4>
-        <textarea name="body" rows="12" class="form-control  "></textarea>
+        <textarea name="body" rows="12" class="form-control" required="" , maxlength = "25555"></textarea>
 
         <h5>Slug</h5>
         <input type="text" name="slug" class="form-control">
@@ -80,8 +83,13 @@
 @endsection
 
 @section('scripts')
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.js"
+    integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg="
+    crossorigin="anonymous"></script>
+  {!!Html::script('javascript/parsley.min.js')!!}
+
 {!! Html::script('js/select2.min.js') !!}
-{!!Html::script('javascript/parsley.min.js')!!}
 
 
 <script>

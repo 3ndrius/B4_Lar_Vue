@@ -20,17 +20,19 @@
        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
          <ul class="navbar-nav mr-auto">
            <li class="nav-item active">
-             <a class="nav-link" href="#">Jesteś adminem <span class="sr-only">(current)</span></a>
+             <a class="nav-link" href="#">Witaj {{ Auth::user()->name }} <span class="sr-only">(current)</span></a>
+           </li>
+           <li>
+             <a class="nav-link" href="/">Strona główna </a>
            </li>
          </ul>
 
          <ul class="navbar-nav pull-right">
            <li class="nav-item active">
-             <a class="nav-link" href="#">Witaj <span class="sr-only">(current)</span></a>
+             <a class="nav-link" href="{{route('logout')}}">Wyloguj <span class="sr-only">(current)</span></a>
            </li>
 
          </ul>
-
        </div>
      </nav>
 
@@ -39,10 +41,10 @@
           <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
             <ul class="nav nav-pills flex-column">
               <li class="nav-item ">
-                <a class="nav-link " href="/">Start</a>
+                <a class="nav-link " href="{{route('dashboard.start')}}">Start</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link active" href="{{ route('posts.index')}}">Wszystkie posty<span class="sr-only">(current)</span></a>
+                <a class="nav-link " href="{{ route('posts.index')}}">Wszystkie posty<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('posts.create') }}">Nowy post</a>
