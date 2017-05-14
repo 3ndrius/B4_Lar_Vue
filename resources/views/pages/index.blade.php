@@ -14,6 +14,9 @@
         </div>
       </div>
     </div>
+    </div>
+  <div class="container">
+
 
   <div class="row">
     <div class="col-md-10">
@@ -44,6 +47,10 @@
 
     </div>
   </div>
+    </div>
+
+<div class="container">
+
 
   <div class="row">
     <div class="col-md-12">
@@ -97,15 +104,31 @@ ddsds
         </div>
       </div>
     </div>
-  <div class="row">
-    <div class="col-md-12">
-      hgey
-      @foreach ($comments as $comment)
-        {{$comment->id}}
-{{$comment->name}}
-{{$comment->comment}}
-      @endforeach
     </div>
+  </div>
+<hr>
+
+  <div class="container">
+<h1 class="text-center">KOMENTARZE</h1>
+
+  <div class="row">
+
+@foreach ($comments as $comment)
+  <div class="col-md-6">
+    <a href="{{Route('blog.single', $post->slug)}}">
+      <div class="card card-outline-primary mb-3 text-center">
+  <div class="card-block">
+    <blockquote class="card-blockquote">
+
+      <p>{{$comment->comment}}</p>
+      <footer>{{$comment->name }} | <cite title="Source Title"> {{ $comment->created_at}}</cite></footer>
+    </blockquote>
+  </div>
+</div>
+</a></div>
+
+      @endforeach
+
   </div>
 
 </div>

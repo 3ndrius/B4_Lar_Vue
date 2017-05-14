@@ -16,7 +16,7 @@ class PagesController extends Controller
       $posts = Post::orderBy('id', 'desc')->paginate(9);
       $tags = Tag::all();
 
-      $comments = Comment::orderBy('id', 'desc')->paginate(3);
+      $comments = Comment::orderBy('id', 'desc')->paginate(6);
 
       return view('pages.index')->withPosts($posts)->withTags($tags)->withComments($comments);
     }
