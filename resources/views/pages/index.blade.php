@@ -46,7 +46,9 @@
       @endforeach
 
     </div>
+
   </div>
+<hr>
     </div>
 
 <div class="container">
@@ -62,7 +64,7 @@
         <div class="card-header" role="tab" id="headingOne">
           <h5 class="mb-0">
             <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-ddsds
+Collapsible group item #1
             </a>
           </h5>
         </div>
@@ -109,7 +111,7 @@ ddsds
 <hr>
 
   <div class="container">
-<h1 class="text-center">KOMENTARZE</h1>
+<h1 class="text-center p-4">KOMENTARZE</h1>
 
   <div class="row">
 

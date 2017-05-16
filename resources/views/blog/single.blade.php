@@ -44,6 +44,9 @@
 	</div>
 
   <div class="row">
+    <div class="card p-2">
+
+
     <div class="comment-form col-md-12 ">
 			{{ Form::open(['route' =>['comments.store', $post->id], 'method' => 'POST']) }}
       <div class="row">
@@ -60,12 +63,13 @@
 						{{ Form::label('comment', 'Komentarz:') }}
 						{{ Form::textarea('comment', null, ['class' => 'form-control', 'rows' => '10']) }}
 
-						{{ Form::submit('Dodaj komentarz', ['class' => 'btn btn-success btn-block btn-lg ', 'style' => 'margin-top:10px;'])}}
+						{{ Form::submit('Dodaj komentarz', ['class' => 'btn btn-secondary pull-right', 'style' => 'margin-top:10px; '])}}
 					</div>
 			</div>
 				{{Form::close()}}
 		</div>
 	</div>
+  </div>
 </div>
 
 

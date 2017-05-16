@@ -11,15 +11,16 @@
 @endsection
 
 @section('content')
+.<div class="container-fluid pb-4">
 
 
-  <div class="row p-4">
+  <div class="row p-2">
     <div class="col-md-8">
-      <h1>Edytuj post</h1>
+      <h1>EDYTUJ POST</h1>
 
     </div>
     <div class="col-md-2">
-      <a href="{{ route('posts.index')}}"><button type="button" name="button" class="btn btn-primary">Anuluj</button></a>
+      <a href="{{ route('posts.index')}}"><button type="button" name="button" class="btn btn-warning">Anuluj</button></a>
 
     </div>
   </div>
@@ -30,33 +31,34 @@
 
       {!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT', 'files' => true, 'data-parsley-validate' => '']) !!}
 
-        {{Form::label('title', 'Tytuł:')}}
+        {{Form::label('title', 'TYTUŁ:')}}
         {{Form::text('title', null, ['class' => 'form-control', 'required'=>'', 'maxlength' =>'255'])}}
 
 
 
-        {{ Form::label('body', 'Tresc:', ['class' => 'margin-top' ])}}
+        {{ Form::label('body', 'TREŚĆ:', ['class' => 'margin-top' ])}}
         {{Form::textarea('body', null, ['class' => 'form-control','required' => '', 'maxlength' => '25555'])}}
 
-        {{ Form::label('slug', 'Slug:', ['class' => 'margin-top'])}}
+        {{ Form::label('slug', 'URL (slug):', ['class' => 'margin-top'])}}
         {{Form::text('slug', null, ['class' => 'form-control', 'required'=>'', 'maxlength' =>'255'])}}
 
-        {{Form::label('category_id', 'Category: ')}}
+        {{Form::label('category_id', 'KATEGORIE:', ['class' => 'margin-top'])}}
         {{Form::select('category_id', $categories, null, ['class' => 'form-control', 'required'=>''])}}
 
-        {{ Form::label('tags' , 'Tags:') }}
+        {{ Form::label('tags' , 'TAGI:', ['class' => 'margin-top']) }}
   			{{ Form::select('tags[]', $tags, null, ['class' => 'select2-multi form-control' , 'multiple' => 'multiple']) }}
         <br><br>
-        {{ Form::label('featured_image', 'Zaktualizuj swoje zdjęcie:')}}
+        {{ Form::label('featured_image', 'ZAKTUALIZUJ ZDJĘCIE:')}}
         {{ Form::file('featured_image', ['class' => 'form-control'])}}
 
-        {{ Form::submit('Aktualizuj', ['class' => 'btn btn-success btn-block margin-top']) }}
+        {{ Form::submit('Aktualizuj', ['class' => 'btn btn-success btn-block margin-top', 'style' => 'cursor:pointer;']) }}
 
 
       {!! Form::close()!!}
 
     </div>
   </div>
+</div>
 
 
 @endsection
