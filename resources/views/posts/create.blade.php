@@ -1,7 +1,7 @@
 @extends('dashboard')
 @section('title', '| Nowy post')
 @section('stylesheets')
-  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheets" href="/css/main.css">
   {!! Html::style('css/parsley.css') !!}
   {!! Html::style('/css/select2.min.css') !!}
   <script src="//cloud.tinymce.com/stable/tinymce.min.js"></script>

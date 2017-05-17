@@ -1,6 +1,11 @@
 @extends('main')
 
 @section('title', '| Wszystkie posty')
+@section('stylesheets')
+  {{ Html::style('font-awesome/css/font-awesome.min.css') }}
+    {{ Html::style('/css/style.css') }}
+    {{ Html::style('/css/main.css') }}
+@endsection
 
 @section('content')
   <div class="container mt-5">

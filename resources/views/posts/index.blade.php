@@ -1,6 +1,6 @@
 @extends('dashboard')
 
-@section('style')
+@section('stylesheets')
     {{ Html::style('font-awesome/css/font-awesome.min.css') }}
     {{ Html::style('/css/main.css')}}
 

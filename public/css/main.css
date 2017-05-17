@@ -1,20 +1,23 @@
 body{
   font-family: 'Raleway', sans-serif;
-  font-weight:300;
+  background-color: #F4F6F8;
+
 }
 .wrap_nav {
 
-  background-color: #44767f;
+  background-color: #ffffff;
 
 
 }
 .navbar-light .navbar-nav .active>.nav-link {
-  color: #c0cbd4;
+  color: #A6A6A7;
+
 
 
 }
 .navbar-light .navbar-nav .nav-link {
-  color:white;
+  color:#252525;
+
 }
 .margin-top {
   margin-top:20px;
@@ -35,3 +38,15 @@ body{
 .show-tag a {
   color:#292B2C;
 }
+.footer {
+  background-color: #252525;
+  color: #F6F6F6;
+  opacity:0.95;
+}
+.footer ul li{
+  background-color: #252525;
+  color: #F6F6F6;
+}
+ .article-index .card{
+  background-color: #F4F6F8;
+ }

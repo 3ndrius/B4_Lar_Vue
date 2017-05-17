@@ -1,4 +1,4 @@
-<div class="container pt-5">
+<div class="container-fluid pt-5 footer">
 <div class="row">
   <div class="col-md-4">
     <ul class="list-group">
@@ -31,14 +31,13 @@
   </div>
 
 </div>
+.<div class="row">
+<div class="col-md-2">
 
 </div>
-
-
-<hr>
-<footer >
-<div class="container">
+  <div class="col-md-8 col-md-offset-2">
 <p>  &copy Wszystkie prawa zastrzeżone 2017</p>
+  </div>
 </div>
 
-</footer>
+</div>

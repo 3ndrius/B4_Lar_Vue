@@ -1,5 +1,10 @@
 @extends('main')
 @section('title', '| Start')
+@section('stylesheets')
+
+    
+    {{ Html::style('/css/main.css') }}
+@endsection
 
 
 @section('content')
@@ -15,7 +20,7 @@
       </div>
     </div>
     </div>
-  <div class="container">
+  <div class="container article-index">
 
 
   <div class="row">

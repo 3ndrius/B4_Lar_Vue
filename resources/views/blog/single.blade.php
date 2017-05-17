@@ -1,25 +1,34 @@
 @extends('main')
 @section('title', '| Blog')
 @section('stylesheets')
-  {{ Html::style('font-awesome/css/font-awesome.min.css') }}
+
     {{ Html::style('/css/style.css') }}
+
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container pb-4">
 
   <div class="row pt-4">
-		<div class="col-md-12 p-4 ">
-      <img class= "mb-2" src="{{asset('images/'.$post->image)}}" alt="Zdjecie h1" width="1100" height="600">
+		<div class=" col-md-12 p-4 ">
+      <img class= "mb-4" src="{{asset('images/'.$post->image)}}" alt="Header image" width="1100" height="600">
 
-      <h1 class="p-2">{{$post->title}}</h1>
-				<p>{!!$post->body!!}</p>
+      <h1 class="p-1"><b>{{$post->title}}</b></h1>
+      @if(isset($post->category->name))
+        <span class="badge badge-pill badge-default">{{$post->category->name}}</span>
+          | <span class="badge badge-pill badge-default">
+        {{ $post->created_at}}
+        </span>
+      @else
+        ... |
+        <span class="badge badge-pill badge-default">{{$post->created_at}}</span>
 
-        @if(isset($post->category->name))
-          <h5>Kategoria <span class="badge badge-pill badge-default">{{$post->category->name}}</span></h5>
-        @else
-          <h5>Kategorie - brak</h5>
-        @endif
+      @endif
+      <hr>
+
+			<p>{!!$post->body!!}</p>
+
+
     </div>
 
     <div class="col-md-12 pb-5 pt-2">
