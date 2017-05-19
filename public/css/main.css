@@ -1,7 +1,7 @@
 body{
   font-family: 'Raleway', sans-serif;
   background-color: #F4F6F8;
-
+color:#252525;
 }
 .wrap_nav {
 
@@ -17,6 +17,7 @@ body{
 }
 .navbar-light .navbar-nav .nav-link {
   color:#252525;
+
 
 }
 .margin-top {
@@ -49,4 +50,19 @@ body{
 }
  .article-index .card{
   background-color: #F4F6F8;
+ }
+ .aside a{
+   color:#fff;
+ }
+ .comments a{
+   color:#252525;
+   text-decoration: none;
+ }
+ .comments .card {
+   border-color:rgba(0,0,0,.125);
+ }
+ .alert{
+   background-color:rgba(0,0,0,.125);
+   
+
  }

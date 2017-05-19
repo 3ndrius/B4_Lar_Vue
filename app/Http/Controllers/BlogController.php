@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Tag;
+use App\Category;
 class BlogController extends Controller
 {
 
@@ -23,5 +24,7 @@ class BlogController extends Controller
       return view('blog.single')->withPost($post);
 
     }
+
+
 
 }

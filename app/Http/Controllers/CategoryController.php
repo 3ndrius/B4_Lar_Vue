@@ -11,7 +11,7 @@ class CategoryController extends Controller
 {
   public function __construct() {
 
-        $this->middleware('auth');
+        $this->middleware('auth',['except' => 'show']);
     }
 
   public function index()
@@ -20,6 +20,28 @@ class CategoryController extends Controller
 
       return view('categories.index')->withCategories($categories);
   }
+
+
+
+
+
+  public function show($name) {
+
+
+    $category = Category::find($name);
+    $category = Category::where('name', '=', $name)->first();
+    // $category = Category::find($name);
+
+
+    return view('categories.show', compact('category'));
+  }
+
+
+
+
+
+
+
 
   /**
    * Show the form for creating a new resource.

@@ -1,8 +1,9 @@
 @extends('main')
 @section('title', '| Blog')
 @section('stylesheets')
-
+    {{ Html::style('font-awesome/css/font-awesome.min.css') }}
     {{ Html::style('/css/style.css') }}
+    {{ Html::style('/css/main.css') }}
 
 @endsection
 
@@ -72,7 +73,7 @@
 						{{ Form::label('comment', 'Komentarz:') }}
 						{{ Form::textarea('comment', null, ['class' => 'form-control', 'rows' => '10']) }}
 
-						{{ Form::submit('Dodaj komentarz', ['class' => 'btn btn-secondary pull-right', 'style' => 'margin-top:10px; '])}}
+						{{ Form::submit('Dodaj komentarz', ['class' => 'btn btn-secondary', 'style' => 'margin-top:10px;'])}}
 					</div>
 			</div>
 				{{Form::close()}}

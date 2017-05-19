@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Tag;
 use App\Comment;
+use App\Category;
 
 
 class PagesController extends Controller
@@ -15,10 +16,11 @@ class PagesController extends Controller
 
       $posts = Post::orderBy('id', 'desc')->paginate(9);
       $tags = Tag::all();
+      $categories = Category::all();
 
       $comments = Comment::orderBy('id', 'desc')->paginate(6);
 
-      return view('pages.index')->withPosts($posts)->withTags($tags)->withComments($comments);
+      return view('pages.index')->withPosts($posts)->withTags($tags)->withComments($comments)->withCategories($categories);
     }
 
     public function getshowTag($name) {
@@ -27,9 +29,10 @@ class PagesController extends Controller
       $tag = Tag::where('name', '=', $name)->first();
 
       return view('pages.showtag')->withTag($tag);
+
     }
 
-
+  
 
     public function getIT() {
 

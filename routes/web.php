@@ -34,6 +34,7 @@ Route::get('/news', 'PagesController@getNews');
 // Route::get('pages/{id}', 'PagesController@getshowPost');
 
 Route::get('pages/{id}',['uses' => 'PagesController@getshowTag', 'as' => 'pages.showtag']);
+// Route::get('categories/{name}',['uses' => 'CategoryController@show', 'as' => 'categories.showCategory']);
 
 
 //post crud
