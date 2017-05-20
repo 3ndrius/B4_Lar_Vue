@@ -27,12 +27,16 @@ class PagesController extends Controller
 
       $tag = Tag::find($name);
       $tag = Tag::where('name', '=', $name)->first();
+      $categories = Category::all();
+      $tags = Tag::all();
 
-      return view('pages.showtag')->withTag($tag);
+      return view('pages.showtag')->withTag($tag)->withCategories($categories)->withTags($tags);
+
+      
 
     }
 
-  
+
 
     public function getIT() {
 

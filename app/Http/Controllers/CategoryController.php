@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Post;
 use Session;
 use App\Category;
+use App\Tag;
+
 
 class CategoryController extends Controller
 {
@@ -32,8 +34,13 @@ class CategoryController extends Controller
     $category = Category::where('name', '=', $name)->first();
     // $category = Category::find($name);
 
+    $tags = Tag::all();
 
-    return view('categories.show', compact('category'));
+    $categories = Category::all();
+
+
+
+    return view('categories.show', compact('category', 'tags','categories'));
   }
 
 
