@@ -26,8 +26,6 @@ Route::get('blog/{slug}', ['as' => 'blog.single', 'uses' => 'BlogController@show
 //blog
 Route::get('blog', ['uses' => 'BlogController@index', 'as' => 'blog.index']);
 
-//partials footer
-Route::get('/footer', 'PartialsController@getIndex');
 
 //pages
 Route::get('/', 'PagesController@getIndex');

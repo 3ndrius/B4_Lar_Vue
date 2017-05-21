@@ -32,7 +32,7 @@ class PagesController extends Controller
 
       return view('pages.showtag')->withTag($tag)->withCategories($categories)->withTags($tags);
 
-      
+
 
     }
 
@@ -40,10 +40,25 @@ class PagesController extends Controller
 
     public function getIT() {
 
-      return view('pages.it');
+      $posts = Post::orderBy('id', 'desc')->paginate(9);
+      $tags = Tag::all();
+      $categories = Category::all();
+      
+
+      $comments = Comment::orderBy('id', 'desc')->paginate(6);
+
+      return view('pages.it')->withPosts($posts)->withTags($tags)->withComments($comments)->withCategories($categories);
+
+
     }
     public function getNews() {
 
-      return view('pages.news');
+      $posts = Post::orderBy('id', 'desc')->paginate(9);
+      $tags = Tag::all();
+      $categories = Category::all();
+
+      $comments = Comment::orderBy('id', 'desc')->paginate(6);
+
+      return view('pages.news')->withPosts($posts)->withTags($tags)->withComments($comments)->withCategories($categories);
     }
 }

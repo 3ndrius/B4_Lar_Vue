@@ -16,13 +16,18 @@
 
       <h1 class="p-1"><b>{{$post->title}}</b></h1>
       @if(isset($post->category->name))
-        <span class="badge badge-pill badge-default">{{$post->category->name}}</span>
+        <span class="badge badge-pill badge-default single-cat-link">
+          <a href="{{route('categories.show',$post->category->name)}}">{{$post->category->name}}</a>
+        </span>
           | <span class="badge badge-pill badge-default">
-        {{ $post->created_at}}
+        {{ date(' d M Y, G:i:s' , strtotime($post->created_at)) }}
+
         </span>
       @else
         ... |
-        <span class="badge badge-pill badge-default">{{$post->created_at}}</span>
+        <span class="badge badge-pill badge-default">
+            {{ date(' d M Y' , strtotime($post->created_at)) }}
+        </span>
 
       @endif
       <hr>
@@ -34,7 +39,7 @@
 
     <div class="col-md-12 pb-5 pt-2">
       <hr>
-      <h2> <i class="fa fa-commenting-o fa-lg" aria-hidden="true"></i> Komentarze</h2>
+      <h2> <i class="fa fa-commenting-o fa-lg" aria-hidden="true"></i> Komentarze ({{$post->comment()->count()}})</h2>
     </div>
     <div class="col-md-10 col-md-offset-1">
       @foreach($post->comment as $comment)

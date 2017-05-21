@@ -11,6 +11,11 @@ body{
 
 
 }
+
+.single-cat-link a{
+	text-decoration: none;
+	color:#fff;
+}
 .panel{
 	background-color: #fff;
 	border-color: #fff;

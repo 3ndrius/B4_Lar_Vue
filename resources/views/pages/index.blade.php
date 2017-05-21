@@ -50,18 +50,19 @@
           <span class="badge badge-default"><a href="{{route('pages.showtag', $tag->name)}}">{{$tag->name}}</a></span>
 
       @endforeach
+      <hr>
 
       <div class="alert text-center mt-4" role="alert">
-      <i class="fa fa-bookmark fa-lg" aria-hidden="true"></i> <strong>KATEGORIE</strong>
+      <i class="fa fa-bookmark fa-lg" aria-hidden="true"></i>
+       <strong>KATEGORIE</strong>
       </div>
+
       @foreach($categories as $category)
           <span class="badge badge-default"><a href="{{route('categories.show', $category->name)}}">{{$category->name}}</a></span>
 
       @endforeach
-
+      <hr>
     </div>
-
-
   </div>
 
     </div>
@@ -79,7 +80,7 @@
         <div class="card-header" role="tab" id="headingOne">
           <h5 class="mb-0">
             <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-Collapsible group item #1
+              Collapsible group item #1
             </a>
           </h5>
         </div>
