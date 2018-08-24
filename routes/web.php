@@ -10,8 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 //comments
 Route::get('comment', ['uses' => 'CommentController@index', 'as' => 'comments.index']);
 Route::post('comments/{post_id}', ['uses' => 'CommentController@store', 'as' => 'comments.store']);
@@ -32,16 +30,11 @@ Route::get('/it', 'PagesController@getIT');
 Route::get('/news', 'PagesController@getNews');
 // Route::get('pages/{id}','PagesController@getshowTag');
 // Route::get('pages/{id}', 'PagesController@getshowPost');
-
 Route::get('pages/{id}',['uses' => 'PagesController@getshowTag', 'as' => 'pages.showtag']);
-
-
 //post crud
 Route::resource('/posts', 'PostController');
 //category crud
 Route::resource('categories', 'CategoryController', ['except' =>['create']]);
 // Route::get('categories/{id}/delete', ['uses' => 'CategoryController@delete', 'as' => 'categories.delete']);
-
-
 //tag crud
 Route::resource('tags', 'TagController', ['except' => ['create']]);
