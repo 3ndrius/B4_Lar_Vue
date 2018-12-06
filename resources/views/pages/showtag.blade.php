@@ -38,7 +38,7 @@
 								<td>
 								@foreach($post->tags as $tag)
 
-										<a href="{{route('pages.showtag', $tag->id)}}"><span class="badge badge-default">{{ $tag->name }}</span></a>
+										<a href="{{route('pages.showtag', $tag->name)}}"><span class="badge badge-default">{{ $tag->name }}</span></a>
 
 								@endforeach
 								<td>

@@ -6,9 +6,15 @@ use Illuminate\Http\Request;
 use App\Post;
 use Session;
 use App\Category;
+use App\Tag;
+
 
 class CategoryController extends Controller
 {
+  public function __construct() {
+
+        $this->middleware('auth',['except' => 'show']);
+    }
 
   public function index()
   {
@@ -16,6 +22,33 @@ class CategoryController extends Controller
 
       return view('categories.index')->withCategories($categories);
   }
+
+
+
+
+
+  public function show($name) {
+
+
+    $category = Category::find($name);
+    $category = Category::where('name', '=', $name)->first();
+    // $category = Category::find($name);
+
+    $tags = Tag::all();
+
+    $categories = Category::all();
+
+
+
+    return view('categories.show', compact('category', 'tags','categories'));
+  }
+
+
+
+
+
+
+
 
   /**
    * Show the form for creating a new resource.

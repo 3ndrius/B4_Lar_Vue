@@ -6,7 +6,7 @@
 
 	<div class="row">
 		<div class="col-md-8">
-			<h1>Kategorie</h1>
+			<h1>KATEGORIE</h1>
 
 			<table class="table">
 				<thead>

@@ -5,7 +5,7 @@
 
   <div class="row p-4">
     <div class="col-md-10">
-      <h2 class="pb-2">Edycja: </h2>
+      <h2 class="pb-2">EYDTUJ: </h2>
 
 
       {!! Form::model($comment, ['route' => ['comments.update', $comment->id], 'method' => 'PUT']) !!}

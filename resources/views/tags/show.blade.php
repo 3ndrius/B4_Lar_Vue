@@ -3,6 +3,9 @@
 
 
 @section('content')
+.<div class="container-fluid">
+
+
 	<div class="row p-4">
 		<div class="col-md-8 p-2">
 			<h2 >{{ $tag->name }} Tag <small>{{ $tag->posts()->count() }} Posts</small></h2>
@@ -51,6 +54,6 @@
 
 			</div>
 		</div>
-
+</div>
 
 @endsection

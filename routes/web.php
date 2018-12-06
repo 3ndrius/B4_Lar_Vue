@@ -24,6 +24,7 @@ Route::get('blog/{slug}', ['as' => 'blog.single', 'uses' => 'BlogController@show
 //blog
 Route::get('blog', ['uses' => 'BlogController@index', 'as' => 'blog.index']);
 
+
 //pages
 Route::get('/', 'PagesController@getIndex');
 Route::get('/it', 'PagesController@getIT');
@@ -38,3 +39,9 @@ Route::resource('categories', 'CategoryController', ['except' =>['create']]);
 // Route::get('categories/{id}/delete', ['uses' => 'CategoryController@delete', 'as' => 'categories.delete']);
 //tag crud
 Route::resource('tags', 'TagController', ['except' => ['create']]);
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Auth::routes();
+
+Route::get('/dashboard', ['uses' => 'HomeController@index', 'as' => 'dashboard.start']);
